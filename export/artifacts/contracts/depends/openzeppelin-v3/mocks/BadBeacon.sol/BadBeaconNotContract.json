@@ -1,0 +1,48 @@
+{
+  "contractName": "BadBeaconNotContract",
+  "sourceName": "contracts/depends/openzeppelin-v3/mocks/BadBeacon.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50608a8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80635c60da1b14602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b60019056fea2646970667358221220167e7b6162f45290b8151fef2408f0522e535b20001ef3953fac1822e5b99ce464736f6c63430007060033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80635c60da1b14602d575b600080fd5b6033604f565b604080516001600160a01b039092168252519081900360200190f35b60019056fea2646970667358221220167e7b6162f45290b8151fef2408f0522e535b20001ef3953fac1822e5b99ce464736f6c63430007060033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "evm": {
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "27600",
+        "executionCost": "81",
+        "totalCost": "27681"
+      },
+      "external": {
+        "implementation()": "197"
+      }
+    },
+    "methodIdentifiers": {
+      "implementation()": "5c60da1b"
+    }
+  }
+}

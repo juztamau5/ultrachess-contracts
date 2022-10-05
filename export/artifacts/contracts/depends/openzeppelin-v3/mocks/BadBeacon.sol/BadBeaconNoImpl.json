@@ -1,0 +1,29 @@
+{
+  "contractName": "BadBeaconNoImpl",
+  "sourceName": "contracts/depends/openzeppelin-v3/mocks/BadBeacon.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122031bcb25ee7c93b0f8de50e75691a8777fed515406cd0a593cfee1da3cf64f67a64736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122031bcb25ee7c93b0f8de50e75691a8777fed515406cd0a593cfee1da3cf64f67a64736f6c63430007060033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "evm": {
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "12600",
+        "executionCost": "66",
+        "totalCost": "12666"
+      }
+    },
+    "methodIdentifiers": {}
+  }
+}

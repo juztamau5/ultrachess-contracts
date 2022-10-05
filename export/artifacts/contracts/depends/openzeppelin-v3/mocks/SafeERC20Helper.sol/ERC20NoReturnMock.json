@@ -1,0 +1,139 @@
+{
+  "contractName": "ERC20NoReturnMock",
+  "sourceName": "contracts/depends/openzeppelin-v3/mocks/SafeERC20Helper.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "allowance_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setAllowance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506101af806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063095ea7b31461005c57806323b872dd1461008a5780633ba93f26146100c0578063a9059cbb1461005c578063dd62ed3e146100dd575b600080fd5b6100886004803603604081101561007257600080fd5b506001600160a01b03813516906020013561011d565b005b610088600480360360608110156100a057600080fd5b506001600160a01b03813581169160208101359091169060400135610126565b610088600480360360208110156100d657600080fd5b5035610130565b61010b600480360360408110156100f357600080fd5b506001600160a01b0381358116916020013516610159565b60408051918252519081900360200190f35b50506000600155565b5050600060015550565b8060008061013c610175565b6001600160a01b0316815260208101919091526040016000205550565b506001600160a01b031660009081526020819052604090205490565b339056fea2646970667358221220de57a62ba703455be5981c570624d9bce8d34121c6a809c4f7e36fb1dbfac3d664736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063095ea7b31461005c57806323b872dd1461008a5780633ba93f26146100c0578063a9059cbb1461005c578063dd62ed3e146100dd575b600080fd5b6100886004803603604081101561007257600080fd5b506001600160a01b03813516906020013561011d565b005b610088600480360360608110156100a057600080fd5b506001600160a01b03813581169160208101359091169060400135610126565b610088600480360360208110156100d657600080fd5b5035610130565b61010b600480360360408110156100f357600080fd5b506001600160a01b0381358116916020013516610159565b60408051918252519081900360200190f35b50506000600155565b5050600060015550565b8060008061013c610175565b6001600160a01b0316815260208101919091526040016000205550565b506001600160a01b031660009081526020819052604090205490565b339056fea2646970667358221220de57a62ba703455be5981c570624d9bce8d34121c6a809c4f7e36fb1dbfac3d664736f6c63430007060033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "evm": {
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "86200",
+        "executionCost": "135",
+        "totalCost": "86335"
+      },
+      "external": {
+        "allowance(address,address)": "1234",
+        "approve(address,uint256)": "5207",
+        "setAllowance(uint256)": "20344",
+        "transfer(address,uint256)": "5273",
+        "transferFrom(address,address,uint256)": "5258"
+      }
+    },
+    "methodIdentifiers": {
+      "allowance(address,address)": "dd62ed3e",
+      "approve(address,uint256)": "095ea7b3",
+      "setAllowance(uint256)": "3ba93f26",
+      "transfer(address,uint256)": "a9059cbb",
+      "transferFrom(address,address,uint256)": "23b872dd"
+    }
+  }
+}
