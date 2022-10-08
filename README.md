@@ -11,3 +11,11 @@ data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjkwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMC
 Here's a screenshot of the animated image:
 
 ![Uniswap - 1% - CTSI/W-ETH - MIN<>MAX](docs/CTSI-WETH%20LP%20NFT.png)
+
+## Building
+
+To build the Docker image, enter the project directory and run:
+
+```
+docker buildx bake --load
+```
