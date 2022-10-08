@@ -47,6 +47,10 @@ const config: HardhatUserConfig = {
       url: "http://localhost:8545",
       accounts: mnemonic ? { mnemonic } : undefined,
     },
+    docker: {
+      url: "http://hardhat:8545",
+      accounts: mnemonic ? { mnemonic } : undefined,
+    },
     mainnet: infuraNetwork("mainnet", 1, 6283185),
     goerli: infuraNetwork("goerli", 5, 6283185),
     polygon_mumbai: infuraNetwork("polygon-mumbai", 80001),
