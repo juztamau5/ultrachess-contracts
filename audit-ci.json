@@ -5,9 +5,5 @@
   "high": true,
   "critical": true,
   "package-manager": "yarn",
-  "allowlist": [
-    "GHSA-88g8-f5mf-f5rj",
-    "GHSA-7grf-83vw-6f5x",
-    "GHSA-9c22-pwxw-p6hx"
-  ]
+  "allowlist": ["GHSA-88g8-f5mf-f5rj", "GHSA-7grf-83vw-6f5x"]
 }
