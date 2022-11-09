@@ -101,5 +101,4 @@ function install_openzeppelin_v2() {
 
   rm -rf "${INSTALL_DIR_OPENZEPPELIN}"
   cp -r "${REPO_DIR_OPENZEPPELIN}" "${INSTALL_DIR_OPENZEPPELIN}"
-
 }
