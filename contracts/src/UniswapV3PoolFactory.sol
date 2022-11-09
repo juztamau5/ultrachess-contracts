@@ -42,12 +42,7 @@ contract UniswapV3PoolFactory {
      * @param token1 The second token of the pool by address sort order
      * @param fee The fee collected upon every swap in the pool, denominated in hundredths of a bip
      */
-    constructor(
-        address factory,
-        address token0,
-        address token1,
-        uint24 fee
-    ) {
+    constructor(address factory, address token0, address token1, uint24 fee) {
         // Validate parameters
         require(factory != address(0), "Invalid factory");
         require(token0 != address(0), "Invalid token0");
