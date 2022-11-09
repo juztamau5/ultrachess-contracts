@@ -54,6 +54,7 @@ mkdir -p "${INSTALL_DIR}"
 
 source "${DEPENDS_DIR}/canonical-weth/package.sh"
 source "${DEPENDS_DIR}/cartesi-token/package.sh"
+source "${DEPENDS_DIR}/ocean-protocol/package.sh"
 source "${DEPENDS_DIR}/openzeppelin-v2/package.sh"
 source "${DEPENDS_DIR}/openzeppelin-v3/package.sh"
 source "${DEPENDS_DIR}/uniswap-lib/package.sh"
@@ -66,6 +67,7 @@ source "${DEPENDS_DIR}/uniswap-v3-periphery/package.sh"
 
 checkout_canonical_weth
 checkout_cartesi_token
+checkout_ocean_protocol
 checkout_openzeppelin_v2
 checkout_openzeppelin_v3
 checkout_uniswap_lib
@@ -78,6 +80,7 @@ checkout_uniswap_v3_periphery
 
 patch_canonical_weth
 patch_cartesi_token
+patch_ocean_protocol
 patch_openzeppelin_v2
 patch_openzeppelin_v3
 patch_uniswap_lib
@@ -90,6 +93,7 @@ patch_uniswap_v3_periphery
 
 build_canonical_weth
 build_cartesi_token
+build_ocean_protocol
 build_openzeppelin_v2
 build_openzeppelin_v3
 build_uniswap_lib
@@ -102,6 +106,7 @@ build_uniswap_v3_periphery
 
 install_canonical_weth
 install_cartesi_token
+install_ocean_protocol
 install_openzeppelin_v2
 install_openzeppelin_v3
 install_uniswap_lib
