@@ -113,5 +113,4 @@ function install_cartesi_token() {
 
   rm -rf "${INSTALL_DIR_CARTESI_TOKEN}"
   cp -r "${REPO_DIR_CARTESI_TOKEN}/contracts" "${INSTALL_DIR_CARTESI_TOKEN}"
-
 }
