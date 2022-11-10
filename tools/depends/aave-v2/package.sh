@@ -1,11 +1,11 @@
 #!/bin/bash
 ################################################################################
 #
-#  Copyright (C) 2022 juztamau5
-#  This file is part of Retro Dapp - https://github.com/juztamau5/retrodapp
+#  Copyright (C) 2022 Ultrachess Team
+#  This file is part of Ultrachess - https://github.com/Ultrachess/contracts
 #
 #  SPDX-License-Identifier: Apache-2.0
-#  See the file LICENSE.txt for more information.
+#  See the file LICENSE for more information.
 #
 ################################################################################
 
