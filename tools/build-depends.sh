@@ -48,6 +48,7 @@ mkdir -p "${INSTALL_DIR}"
 # Import dependencies
 #
 
+source "${DEPENDS_DIR}/aave-v2/package.sh"
 source "${DEPENDS_DIR}/canonical-weth/package.sh"
 source "${DEPENDS_DIR}/cartesi-token/package.sh"
 source "${DEPENDS_DIR}/ocean-protocol/package.sh"
@@ -61,6 +62,7 @@ source "${DEPENDS_DIR}/uniswap-v3-periphery/package.sh"
 # Checkout dependencies
 #
 
+checkout_aave_v2
 checkout_canonical_weth
 checkout_cartesi_token
 checkout_ocean_protocol
@@ -74,6 +76,7 @@ checkout_uniswap_v3_periphery
 # Patch dependencies
 #
 
+patch_aave_v2
 patch_canonical_weth
 patch_cartesi_token
 patch_ocean_protocol
@@ -87,6 +90,7 @@ patch_uniswap_v3_periphery
 # Build dependencies
 #
 
+build_aave_v2
 build_canonical_weth
 build_cartesi_token
 build_ocean_protocol
@@ -100,6 +104,7 @@ build_uniswap_v3_periphery
 # Install dependencies
 #
 
+install_aave_v2
 install_canonical_weth
 install_cartesi_token
 install_ocean_protocol
