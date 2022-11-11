@@ -57,6 +57,8 @@ mkdir -p "${BYTECODE_DIR}"
 #
 
 source "${DEPENDS_DIR}/aave-v2/package.sh"
+source "${DEPENDS_DIR}/aave-v3-core/package.sh"
+source "${DEPENDS_DIR}/aave-v3-periphery/package.sh"
 source "${DEPENDS_DIR}/canonical-weth/package.sh"
 source "${DEPENDS_DIR}/cartesi-token/package.sh"
 source "${DEPENDS_DIR}/curve/package.sh"
@@ -72,6 +74,8 @@ source "${DEPENDS_DIR}/uniswap-v3-periphery/package.sh"
 #
 
 checkout_aave_v2
+checkout_aave_v3_core
+checkout_aave_v3_periphery
 checkout_canonical_weth
 checkout_cartesi_token
 checkout_curve
@@ -87,6 +91,8 @@ checkout_uniswap_v3_periphery
 #
 
 patch_aave_v2
+patch_aave_v3_core
+patch_aave_v3_periphery
 patch_canonical_weth
 patch_cartesi_token
 patch_curve
@@ -102,6 +108,8 @@ patch_uniswap_v3_periphery
 #
 
 build_aave_v2
+build_aave_v3_core
+build_aave_v3_periphery
 build_canonical_weth
 build_cartesi_token
 build_curve
@@ -117,6 +125,8 @@ build_uniswap_v3_periphery
 #
 
 install_aave_v2
+install_aave_v3_core
+install_aave_v3_periphery
 install_canonical_weth
 install_cartesi_token
 install_curve
