@@ -61,6 +61,7 @@ source "${DEPENDS_DIR}/canonical-weth/package.sh"
 source "${DEPENDS_DIR}/cartesi-token/package.sh"
 source "${DEPENDS_DIR}/curve/package.sh"
 source "${DEPENDS_DIR}/curve-dao/package.sh"
+source "${DEPENDS_DIR}/immutable-x/package.sh"
 source "${DEPENDS_DIR}/openzeppelin-v2/package.sh"
 source "${DEPENDS_DIR}/openzeppelin-v3/package.sh"
 source "${DEPENDS_DIR}/uniswap-lib/package.sh"
@@ -77,6 +78,7 @@ checkout_canonical_weth
 checkout_cartesi_token
 checkout_curve
 checkout_curve_dao
+checkout_immutable_x
 checkout_openzeppelin_v2
 checkout_openzeppelin_v3
 checkout_uniswap_lib
@@ -93,6 +95,7 @@ patch_canonical_weth
 patch_cartesi_token
 patch_curve
 patch_curve_dao
+patch_immutable_x
 patch_openzeppelin_v2
 patch_openzeppelin_v3
 patch_uniswap_lib
@@ -109,6 +112,7 @@ build_canonical_weth
 build_cartesi_token
 build_curve
 build_curve_dao
+build_immutable_x
 build_openzeppelin_v2
 build_openzeppelin_v3
 build_uniswap_lib
@@ -125,6 +129,7 @@ install_canonical_weth
 install_cartesi_token
 install_curve
 install_curve_dao
+install_immutable_x
 install_openzeppelin_v2
 install_openzeppelin_v3
 install_uniswap_lib
