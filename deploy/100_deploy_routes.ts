@@ -437,6 +437,15 @@ const func: DeployFunction = async (hardhat_re: HardhatRuntimeEnvironment) => {
   // Setup contracts
   //////////////////////////////////////////////////////////////////////////////
 
+  // Get the minter role ID
+  const TOKEN_MINTER_ROLE = await deployments.read(
+    LP_SFT_CONTRACT,
+    { from: deployer },
+    "MINTER_ROLE"
+  );
+
+  // Assign the minter role to the CurveAave 
+
   // Transfer ownership of the asset token to the Curve Aave staker
   console.log(
     `Transferring ownership of ${ASSET_TOKEN_CONTRACT} to ${CURVE_AAVE_STAKER_CONTRACT}`

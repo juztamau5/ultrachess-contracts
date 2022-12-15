@@ -98,7 +98,7 @@ contract LpSft is AccessControl, ERC1155Enumberable {
    */
   function mint(address account, uint256 sftTokenId) external {
     // Validate access
-    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "Only minter"); // TODO: Change to MINTER_ROLE
 
     // Validate parameters
     require(account != address(0), "Invalid account");
@@ -119,7 +119,7 @@ contract LpSft is AccessControl, ERC1155Enumberable {
    */
   function mintBatch(address account, uint256[] memory sftTokenIds) external {
     // Validate access
-    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "Only minter"); // TODO: Change to MINTER_ROLE
 
     // Validate parameters
     require(account != address(0), "Invalid account");
@@ -140,7 +140,7 @@ contract LpSft is AccessControl, ERC1155Enumberable {
    */
   function burn(address account, uint256 sftTokenId) external {
     // Validate access
-    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "Only minter"); // TODO: Change to MINTER_ROLE
 
     // Validate parameters
     require(account != address(0), "Invalid account");
@@ -161,7 +161,7 @@ contract LpSft is AccessControl, ERC1155Enumberable {
    */
   function burnBatch(address account, uint256[] memory sftTokenIds) external {
     // Validate access
-    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+    require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "Only minter"); // TODO: Change to MINTER_ROLE
 
     // Validate parameters
     require(account != address(0), "Invalid account");
