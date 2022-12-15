@@ -8,7 +8,7 @@
 
 pragma solidity 0.8.16;
 
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import {ERC1155} from "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
 import {INonfungiblePositionManager} from "../../interfaces/uniswap-v3-periphery/INonfungiblePositionManager.sol";
@@ -19,7 +19,7 @@ import {ERC1155Enumberable} from "./extensions/ERC1155Enumerable.sol";
  * @dev Implementation of the https://eips.ethereum.org/EIPS/eip-1155[ERC1155]
  * Semi-fungible Token Standard
  */
-contract LpSft is Ownable, ERC1155Enumberable {
+contract LpSft is AccessControl, ERC1155Enumberable {
   //////////////////////////////////////////////////////////////////////////////
   // Roles
   //////////////////////////////////////////////////////////////////////////////
@@ -51,15 +51,30 @@ contract LpSft is Ownable, ERC1155Enumberable {
     require(owner_ != address(0), "Invalid owner");
     require(uniswapV3NftManager_ != address(0), "Invalid mgr");
 
-    // Initialize {Ownable}
-    transferOwnership(owner_);
+    // Initialize {AccessControl}
+    _setupRole(DEFAULT_ADMIN_ROLE, owner_);
 
     // Initialize state
     uniswapV3NftManager = INonfungiblePositionManager(uniswapV3NftManager_);
   }
 
   //////////////////////////////////////////////////////////////////////////////
-  // Implementation of {IERC1155MetadataURI} via {ERC1155}
+  // Implementation of {IERC165} via {AccessControl} and {ERC1155Enumerable}
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * @dev See {IERC165-supportsInterface}
+   */
+  function supportsInterface(
+    bytes4 interfaceId
+  ) public view override(AccessControl, ERC1155) returns (bool) {
+    return
+      AccessControl.supportsInterface(interfaceId) ||
+      ERC1155.supportsInterface(interfaceId);
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Implementation of {IERC1155MetadataURI} via {ERC1155Enumerable}
   //////////////////////////////////////////////////////////////////////////////
 
   /**
@@ -81,7 +96,10 @@ contract LpSft is Ownable, ERC1155Enumberable {
    * @param account The account to mint an LP SFT to
    * @param sftTokenId The token ID of the minted LP SFT
    */
-  function mint(address account, uint256 sftTokenId) external onlyOwner {
+  function mint(address account, uint256 sftTokenId) external {
+    // Validate access
+    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+
     // Validate parameters
     require(account != address(0), "Invalid account");
 
@@ -99,10 +117,10 @@ contract LpSft is Ownable, ERC1155Enumberable {
    * can be minted in a single transaction. The number of LP SFTs to mint can
    * exceed the block gas limit, denying the transaction from completing.
    */
-  function mintBatch(
-    address account,
-    uint256[] memory sftTokenIds
-  ) external onlyOwner {
+  function mintBatch(address account, uint256[] memory sftTokenIds) external {
+    // Validate access
+    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+
     // Validate parameters
     require(account != address(0), "Invalid account");
     require(sftTokenIds.length > 0, "No IDs");
@@ -120,7 +138,10 @@ contract LpSft is Ownable, ERC1155Enumberable {
    * @param account The account to burn an LP SFT from
    * @param sftTokenId The token ID of the LP SFT to burn
    */
-  function burn(address account, uint256 sftTokenId) external onlyOwner {
+  function burn(address account, uint256 sftTokenId) external {
+    // Validate access
+    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+
     // Validate parameters
     require(account != address(0), "Invalid account");
 
@@ -138,10 +159,10 @@ contract LpSft is Ownable, ERC1155Enumberable {
    * can be burned in a single transaction. The number of LP SFTs to burn can
    * exceed the block gas limit, denying the transaction from completing.
    */
-  function burnBatch(
-    address account,
-    uint256[] memory sftTokenIds
-  ) external onlyOwner {
+  function burnBatch(address account, uint256[] memory sftTokenIds) external {
+    // Validate access
+    require(hasRole(MINTER_ROLE, _msgSender()), "Only minter");
+
     // Validate parameters
     require(account != address(0), "Invalid account");
     require(sftTokenIds.length > 0, "No IDs");
