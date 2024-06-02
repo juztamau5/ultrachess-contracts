@@ -22,9 +22,9 @@ contract LiquidityMath {
    * @dev Compute swap amount needed for adding liquidity to a pool in the
    * absence of concentrated liquidity (such as a Uniswap V2 pool)
    *
-   * The goal is to find the optimal swapAmountA to get a corresponding amount
-   * of asset B, so that the proportion of assets the user holds is equal to
-   * the proportion of assets in reserves after swap.
+   * The goal is to find the optimal swapA to get a corresponding amount of
+   * asset B, so that the proportion of assets the user holds is equal to the
+   * proportion of assets in reserves after swap.
    *
    * Calculation:
    *
@@ -39,34 +39,34 @@ contract LiquidityMath {
    *
    * This means the user will receive an amount of asset B equal to:
    *
-   *   rcvAmountB = reserveB - reserveB'
+   *   rcvB = reserveB - reserveB'
    *
-   *              = reserveB - k / (reserveA + (1 - fee) * swapA)
+   *        = reserveB - k / (reserveA + (1 - fee) * swapA)
    *
-   *              = reserveB - reserveA * reserveB / (reserveA + (1 - fee) * swapAmountA)
+   *        = reserveB - reserveA * reserveB / (reserveA + (1 - fee) * swapA)
    *
-   *              = (1 - fee) * reserveB * swapAmountA / (reserveA + (1 - fee) * swapAmountA)
+   *        = (1 - fee) * reserveB * swapA / (reserveA + (1 - fee) * swapA)
    *
-   * The optimal swapAmountA should satisfy the equality constraint on the
+   * The optimal swapA should satisfy the equality constraint on the
    * user's asset ratio and the reserve's asset ratio:
    *
-   *   (amountA - swapAmountA) / (reserveA + swapAmountA) = rcvAmountB / reserveB'
+   *   (amountA - swapA) / (reserveA + swapA) = rcvB / reserveB'
    *
-   * Substituting known variables rcvAmountB and reserveB' and rearranging the
-   * equation yields a quadratic equation in variable swapAmountA as follows:
+   * Substituting known variables rcvB and reserveB' and rearranging the
+   * equation yields a quadratic equation in variable swapA as follows:
    *
-   *   (1 - fee) * (swapAmountA)^2 + ((2 - fee) * reserveA) * swapAmountA - amountA * reserveA = 0
+   *   (1 - fee) * (swapA)^2 + ((2 - fee) * reserveA) * swapA - amountA * reserveA = 0
    *
    * Solving the above equation for a non-negative root yields:
    *
-   *   swapAmountA =
+   *   swapA =
    *     sqrt(((2 - fee) * reserveA)^2 + 4 * (1 - fee) * amountA * reserveA) - (2 - fee) * reserveA
    *       / (2 * (1 - fee))
    *
    * The fee is represented in hundredths of a bip, so we can avoid floating
    * point numbers by multiplying both the numerator and denominator by 1E6:
    *
-   * swapAmountA =
+   * swapA =
    *   sqrt((2E6 - fee)^2 * reserveA^2 + 4 * 1E6 * (1E6 - fee) * amountA * reserveA) - (2E6 - fee) * reserveA
    *     / (2 * (1E6 - fee))
    *
@@ -76,15 +76,15 @@ contract LiquidityMath {
    * @param amountA The amount of token A to add
    * @param swapfee The swap fee of the pool, denominated in hundredths of a bip
    *
-   * @return swapAmountA The amount of token A to swap for token B
+   * @return swapA The amount of token A to swap for token B
    */
   function computeSwapAmountV2(
     uint256 reserveA,
     uint256 amountA,
     uint24 swapfee
-  ) public pure returns (uint256 swapAmountA) {
+  ) public pure returns (uint256 swapA) {
     // prettier-ignore
-    swapAmountA = (
+    swapA = (
       Math.sqrt(
         (
           uint256(2E6).sub(swapfee).mul(
@@ -118,6 +118,6 @@ contract LiquidityMath {
       )
     );
 
-    return swapAmountA;
+    return swapA;
   }
 }
