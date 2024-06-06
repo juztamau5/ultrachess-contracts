@@ -26,9 +26,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             node-version: 18
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             node-version: 22
           - os: ubuntu-24.04
             node-version: 18
@@ -119,6 +119,7 @@ jobs:
         run: yarn eslint
 
       - name: Update Python dependencies
+        if: matrix.os == 'ubuntu-22.04'
         run: pip3 install --upgrade pip setuptools
 
       - name: yarn depends
