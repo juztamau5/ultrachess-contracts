@@ -41,8 +41,8 @@ jobs:
       - name: Build environment information
         run: 'echo "Matrix OS: ${{ matrix.os }} on $HOSTNAME with $(getconf _NPROCESSORS_ONLN) cores"'
 
-        # Check-out the repository under $GITHUB_WORKSPACE, so the job can
-        # access it
+      # Check-out the repository under $GITHUB_WORKSPACE, so the job can
+      # access it
       - name: Checkout main repo
         uses: actions/checkout@v3
 
@@ -130,8 +130,10 @@ jobs:
       - name: Install Python dependencies for slither
         if: steps.restore-contract-artifacts.outputs.cache-hit != 'true'
         run: |
-          pip3 install --upgrade pip setuptools
-          pip3 install -r requirements.txt
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip setuptools
+          pip install -r requirements.txt
 
       - name: yarn slither
         if: steps.restore-contract-artifacts.outputs.cache-hit != 'true'
