@@ -141,7 +141,9 @@ jobs:
 
       - name: yarn slither
         if: steps.restore-contract-artifacts.outputs.cache-hit != 'true'
-        run: yarn slither
+        run: |
+          source .venv/bin/activate
+          yarn slither
 
       - name: yarn export
         if: steps.restore-contract-artifacts.outputs.cache-hit != 'true'
